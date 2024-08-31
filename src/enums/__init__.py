@@ -5,6 +5,7 @@ from enum import Enum, StrEnum
 Reference: https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-type
 """
 
+
 class InteractionType(Enum):
     PING = 1
     APPLICATION_COMMAND = 2

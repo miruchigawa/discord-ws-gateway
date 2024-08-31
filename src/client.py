@@ -11,6 +11,7 @@ from enums import Opcode, EventType
 from classes.interaction import Interaction
 from classes.user import User
 
+
 class Client:
     _token: str
     _session_id: str
@@ -130,7 +131,9 @@ class Client:
             case EventType.GUILD_CREATE:
                 pass
             case EventType.INTERACTION_CREATE:
-                await self.emit("on_interaction_create", Interaction(packet.get('d', {})))
+                await self.emit(
+                    "on_interaction_create", Interaction(packet.get("d", {}))
+                )
             case _:
                 print(f"Unknown event {packet}")
 
