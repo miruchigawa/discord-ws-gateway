@@ -8,15 +8,8 @@ from typing import Callable, Optional, Dict, Any, Coroutine, Awaitable
 
 from enums import Opcode, EventType
 
-
-class User:
-    id: str
-    username: str
-
-    def __init__(self, data: dict) -> None:
-        self.id = data.get("id", "")
-        self.username = data.get("username", "")
-
+from classes.interaction import Interaction
+from classes.user import User
 
 class Client:
     _token: str
@@ -137,7 +130,7 @@ class Client:
             case EventType.GUILD_CREATE:
                 pass
             case EventType.INTERACTION_CREATE:
-                await self.emit("on_interaction_create", packet)
+                await self.emit("on_interaction_create", Interaction(packet.get('d', {})))
             case _:
                 print(f"Unknown event {packet}")
 

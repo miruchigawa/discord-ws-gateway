@@ -2,6 +2,18 @@ from enum import Enum, StrEnum
 
 
 """
+Reference: https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-type
+"""
+
+class InteractionType(Enum):
+    PING = 1
+    APPLICATION_COMMAND = 2
+    MESSAGE_COMPONENT = 3
+    APPLICATION_COMMAND_AUTOCOMPLETE = 4
+    MODAL_SUBMIT = 5
+
+
+"""
 Reference: https://discord.com/developers/docs/topics/opcodes-and-status-codes#gateway-gateway-opcodes
 """
 
